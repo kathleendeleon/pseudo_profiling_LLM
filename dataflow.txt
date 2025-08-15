@@ -36,3 +36,18 @@ ASCII inside the block:
              │
              └─────────────► LN ─► W1 ─► SwiGLU ─► W2 ─────────► (h + Δ1) + Δ2 = h_{out}
 
+
+Tokenization example using Byte Pair Encoding (BPE) vocabulary: 
+
+   input: "What is a Pembroke Welsh Corgi?" (raw UTF-8 text, 33 characters)
+
+   tokenization: 
+      "What"   → 2021
+      " is"    → 318
+      " a"     → 257
+      " Pembroke" → 49281
+      " Welsh" → 29102
+      " Corgi" → 39145
+      "?"      → 30
+
+  Output: tokens = [2021, 318, 257, 49281, 29102, 39145, 30] (7 tokens).
