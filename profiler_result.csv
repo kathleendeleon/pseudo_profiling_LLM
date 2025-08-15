@@ -1,0 +1,3 @@
+Scenario,Model,Prompt_to_Gen,Batch,Dtype,Cluster_TFLOPs,Utilization,Prefill_s,Decode_s,Total_s,Agg_tok_per_s,Tok_per_s_per_seq,KV_per_seq_peak,KV_total_batch
+A) 13B-class (single GPU),40L d=5120 h=40 (kv=8) d_ff=20480,4096 → +256,8,bf16,989,0.35,2.86,0.18,3.04,11414.9,1426.87,680.00 MiB,5.84 GiB
+B) 70B-class (8x GPUs),80L d=8192 h=64 (kv=8) d_ff=32768,8000 → +512,8,bf16,7912,0.45,2.83,0.18,3.01,22528.5,2816.06,2.60 GiB,22.86 GiB
