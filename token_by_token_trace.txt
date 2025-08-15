@@ -4,6 +4,8 @@ This training is statistical — it learn patterns like:
     Words about herding dogs often co-occur with livestock, short legs, friendly temperament, etc.
 The model synthesizes one in real time from the probability distributions it learned during training.
 
+_______________________________________________________________________________
+
 Token-by-Token Generation Trace (Simulated)
 Prompt: 'What is a Pembroke Welsh Corgi?'
 
@@ -186,6 +188,13 @@ Step 20:
     ,             1.00%
     and           1.00%
     .             0.00%
+_______________________________________________________________________________
 
+To summarize at each token, the model:
+    1) Looks at the entire context so far (your question + generated tokens).
+    2) Uses the KV cache so it doesn’t recompute old token states.
+    3) Predicts the probability distribution over all possible tokens in its vocabulary (often 50k+ options).
+    4) Picks one token based on its decoding strategy (greedy, top-k sampling, nucleus sampling, etc.).
+    5) Appends it to the sequence and repeats.
 Output:
 "The Pembroke Welsh Corgi is a small herding dog breed that originated in Wales, known for its short legs, long body, and friendly temperament."
