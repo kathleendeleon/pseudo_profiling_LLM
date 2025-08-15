@@ -1,41 +1,38 @@
-# Pseudo Profiling LLM
-
-'''
 # Big Picture Data Flow (Pseudo Profiling LLM)
 
 [Client] <br>
-   │  JSON RPC / gRPC
-   ▼
-[API Gateway] ── auth / rate limit / quotas
-   │
-   ▼
-[Request Router] ──> picks an inference pool (model X, quant Y)
-   │
-   ▼
-[Tokenizer] (BPE) ──> int token IDs
-   │
-   ▼
-[Scheduler/Batcher]
-   │   merges compatible requests → “micro-batches”
-   ▼
-[Model Server]
-   ├─ Prefill phase (build KV cache for prompt)
-   ├─ Decode loop (one or few tokens/step)
-   │     ├─ optional speculative decode w/ draft model
-   │     └─ sampling (top-p/top-k/temperature, penalties)
-   └─ Streaming partials back to client
-   │
-   ▼
-[Post-processing]
-   ├─ detokenize to UTF-8 text
-   ├─ safety/harm filters, formatters, tool call validators
-   └─ usage metering, logs (PII-minimized)
+   │  JSON RPC / gRPC <br>
+   ▼ <br>
+[API Gateway] ── auth / rate limit / quotas <br>
+   │ <br>
+   ▼ <br>
+[Request Router] ──> picks an inference pool (model X, quant Y) <br>
+   │ <br>
+   ▼ <br>
+[Tokenizer] (BPE) ──> int token IDs <br>
+   │ <br>
+   ▼ <br>
+[Scheduler/Batcher] <br>
+   │   merges compatible requests → “micro-batches” <br>
+   ▼ <br>
+[Model Server] <br>
+   ├─ Prefill phase (build KV cache for prompt) <br>
+   ├─ Decode loop (one or few tokens/step) <br>
+   │     ├─ optional speculative decode w/ draft model <br>
+   │     └─ sampling (top-p/top-k/temperature, penalties) <br>
+   └─ Streaming partials back to client <br>
+   │ <br>
+   ▼ <br>
+[Post-processing] <br>
+   ├─ detokenize to UTF-8 text <br>
+   ├─ safety/harm filters, formatters, tool call validators <br>
+   └─ usage metering, logs (PII-minimized) <br>
 
      
 
-Attention with rotary positional embeddings (RoPE)
-ASCII inside the block:
-    h_{in} ──┬─────────────► LN ─► [Q,K,V]=hW  ─► RoPE(Q,K) ─► Masked Attn ─► h + Δ1
-             │
-             └─────────────► LN ─► W1 ─► SwiGLU ─► W2 ─────────► (h + Δ1) + Δ2 = h_{out}
-'''
+Attention with rotary positional embeddings (RoPE) <br>
+ASCII inside the block: <br>
+    h_{in} ──┬─────────────► LN ─► [Q,K,V]=hW  ─► RoPE(Q,K) ─► Masked Attn ─► h + Δ1 <br>
+             │ <br>
+             └─────────────► LN ─► W1 ─► SwiGLU ─► W2 ─────────► (h + Δ1) + Δ2 = h_{out} <br>
+
