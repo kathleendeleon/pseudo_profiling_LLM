@@ -1,8 +1,11 @@
 # Big Picture Data Flow (Pseudo Profiling LLM)
 
 [Client] 
+
    │  JSON RPC / gRPC
+   
    ▼
+   
 [API Gateway] ── auth / rate limit / quotas
    │
    ▼
