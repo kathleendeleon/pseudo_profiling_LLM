@@ -1,8 +1,8 @@
 # Big Picture Data Flow (Pseudo Profiling LLM)
 
-Functional High-Level:
+## Functional High-Level:
 ![diagrams](diagrams/request_processing_diagram.png)
 
-Technical High-Level:
+## Technical High-Level:
 ![diagrams](diagrams/data_flow_technical.png)
 
