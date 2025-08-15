@@ -9,4 +9,5 @@
 ## Prompt Example:
 ### "What is a Pembroke Welsh Corgi?"
 ![diagrams](diagrams/prompt_example.png)
+** Token IDs used in the diagram are mock data.
 
