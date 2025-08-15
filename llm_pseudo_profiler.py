@@ -2,6 +2,14 @@
 """
 Tiny LLM pseudo-profiler (commented)
 Inputs: context length, target tokens, batch size, layers/heads/dim, dtype.
+    layers, d_model, n_heads, kv_heads, d_ff --> model architecture specs.
+    prompt --> context tokens fed in.
+    gen --> number of tokens to generate.
+    batch --> number of sequences processed at once.
+    dtype --> numeric precision (bf16, fp16, etc.).
+    cluster_tflops --> total TFLOPs across your GPU cluster.
+    utilization --> fraction of peak performance you realistically get.
+    fudge --> overhead factor for non-GEMM ops.
 Outputs: CSV row(s) with KV cache memory and a rough latency budget.
 
 Each function below includes:
