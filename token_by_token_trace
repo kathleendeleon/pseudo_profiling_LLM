@@ -1,0 +1,191 @@
+LLM model does not store the text like a library; instead, the model adjust billions of parameters in it's neural network so it can predict the next word given a sequence.
+This training is statistical — it learn patterns like:
+    “Pembroke Welsh Corgi” often followed by “is a small herding dog breed from Wales.”
+    Words about herding dogs often co-occur with livestock, short legs, friendly temperament, etc.
+The model synthesizes one in real time from the probability distributions it learned during training.
+
+Token-by-Token Generation Trace (Simulated)
+Prompt: 'What is a Pembroke Welsh Corgi?'
+
+Step 1:
+  Chosen token: 'The'
+  Top-5 predictions:
+    The          62.00%
+    A            21.00%
+    Pembroke      7.00%
+    It            4.00%
+    This          3.00%
+
+Step 2:
+  Chosen token: 'Pembroke'
+  Top-5 predictions:
+    Pembroke     77.00%
+    breed         8.00%
+    dog           5.00%
+    Welsh         4.00%
+    is            3.00%
+
+Step 3:
+  Chosen token: 'Welsh'
+  Top-5 predictions:
+    Welsh        91.00%
+    Corgi         5.00%
+    ,             2.00%
+    is            1.00%
+    and           1.00%
+
+Step 4:
+  Chosen token: 'Corgi'
+  Top-5 predictions:
+    Corgi        95.00%
+    dog           3.00%
+    breed         1.00%
+    is            1.00%
+    ,             0.00%
+
+Step 5:
+  Chosen token: 'is'
+  Top-5 predictions:
+    is           88.00%
+    ,             6.00%
+    (             4.00%
+    the           1.00%
+    was           1.00%
+
+Step 6:
+  Chosen token: 'a'
+  Top-5 predictions:
+    a            82.00%
+    an           10.00%
+    the           5.00%
+    small         2.00%
+    dog           1.00%
+
+Step 7:
+  Chosen token: 'small'
+  Top-5 predictions:
+    small        51.00%
+    herding      27.00%
+    dog          15.00%
+    breed         4.00%
+    and           3.00%
+
+Step 8:
+  Chosen token: 'herding'
+  Top-5 predictions:
+    herding      78.00%
+    dog          14.00%
+    breed         4.00%
+    animal        2.00%
+    type          2.00%
+
+Step 9:
+  Chosen token: 'dog'
+  Top-5 predictions:
+    dog          85.00%
+    breed        10.00%
+    ,             3.00%
+    from          1.00%
+    known         1.00%
+
+Step 10:
+  Chosen token: 'breed'
+  Top-5 predictions:
+    breed        92.00%
+    ,             5.00%
+    that          2.00%
+    originated    1.00%
+    is            0.00%
+
+Step 11:
+  Chosen token: 'that'
+  Top-5 predictions:
+    that         66.00%
+    which        21.00%
+    and           7.00%
+    is            3.00%
+    was           3.00%
+
+Step 12:
+  Chosen token: 'originated'
+  Top-5 predictions:
+    originated   89.00%
+    came          5.00%
+    is            3.00%
+    was           2.00%
+    bred          1.00%
+
+Step 13:
+  Chosen token: 'in'
+  Top-5 predictions:
+    in           94.00%
+    from          3.00%
+    within        2.00%
+    at            1.00%
+    and           0.00%
+
+Step 14:
+  Chosen token: 'Wales'
+  Top-5 predictions:
+    Wales        97.00%
+    .             2.00%
+    ,             1.00%
+    UK            0.00%
+    Britain       0.00%
+
+Step 15:
+  Chosen token: ','
+  Top-5 predictions:
+    ,            96.00%
+    and           2.00%
+    known         1.00%
+    .             1.00%
+    is            0.00%
+
+Step 16:
+  Chosen token: 'known'
+  Top-5 predictions:
+    known        84.00%
+    famous        7.00%
+    recognized    4.00%
+    renowned      3.00%
+    for           2.00%
+
+Step 17:
+  Chosen token: 'for'
+  Top-5 predictions:
+    for          91.00%
+    its           5.00%
+    having        2.00%
+    the           1.00%
+    short         1.00%
+
+Step 18:
+  Chosen token: 'its'
+  Top-5 predictions:
+    its          93.00%
+    having        4.00%
+    the           2.00%
+    short         1.00%
+    small         0.00%
+
+Step 19:
+  Chosen token: 'short'
+  Top-5 predictions:
+    short        85.00%
+    long          5.00%
+    sturdy        4.00%
+    strong        3.00%
+    compact       3.00%
+
+Step 20:
+  Chosen token: 'legs'
+  Top-5 predictions:
+    legs         97.00%
+    body          1.00%
+    ,             1.00%
+    and           1.00%
+    .             0.00%
+
+Output:
+"The Pembroke Welsh Corgi is a small herding dog breed that originated in Wales, known for its short legs, long body, and friendly temperament."
