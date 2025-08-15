@@ -41,7 +41,7 @@ Tokenization example using Byte Pair Encoding (BPE) vocabulary:
 
    input: "What is a Pembroke Welsh Corgi?" (raw UTF-8 text, 33 characters)
 
-   tokenization: 
+   tokenization (fake IDs for example sake): 
       "What"   → 2021
       " is"    → 318
       " a"     → 257
