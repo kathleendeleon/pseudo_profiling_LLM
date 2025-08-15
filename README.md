@@ -7,6 +7,6 @@
 ![diagrams](diagrams/data_flow_technical.png)
 
 ## Prompt Example:
-## "What is a Pembroke Welsh Corgi?"
+### "What is a Pembroke Welsh Corgi?"
 ![diagrams](diagrams/prompt_example.png)
 
