@@ -1,0 +1,4 @@
+Scenario,Model,Prompt_to_Gen,Batch,Dtype,Cluster_TFLOPs,Utilization,Prefill_s,Decode_s,Total_s,Agg_tok_per_s,Tok_per_s_per_seq,KV_per_seq_peak,KV_total_batch
+Preset A: 7B on 1× L40S,32L d=4096 h=32 (kv=8) d_ff=16384,3000 → +250,16,fp16,180,0.35,11.75,0.98,12.73,4065.9,254.12,406.25 MiB,6.98 GiB
+Preset B: 13B on 2× H100,40L d=5120 h=40 (kv=8) d_ff=20480,6000 → +400,12,bf16,1978,0.4,2.92,0.2,3.11,24520.5,2043.38,"1,000.00 MiB",12.89 GiB
+Preset C: 70B on 8× H100,80L d=8192 h=64 (kv=8) d_ff=32768,12000 → +600,8,bf16,7912,0.45,4.58,0.23,4.81,20850.2,2606.27,3.85 GiB,33.84 GiB
