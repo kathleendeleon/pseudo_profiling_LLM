@@ -4,5 +4,5 @@
 ![screenshot]('diagrams/request processing diagram.png')
 
 <h2>Technical High-Level</h2>
-![screenshot]('diagrams/data_flow_technical.png')
+![screenshot](diagrams/data_flow_technical.png)
 
