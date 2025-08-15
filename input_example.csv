@@ -1,0 +1,4 @@
+layers,d_model,n_heads,kv_heads,d_ff,prompt,gen,batch,dtype,cluster_tflops,utilization,fudge
+32,4096,32,32,14336,1024,256,1,bf16,192,0.35,1.2
+40,5120,40,8,20480,2048,512,4,bf16,1978,0.40,1.2
+80,8192,64,8,28672,4096,1024,8,bf16,15824,0.42,1.2
